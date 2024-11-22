@@ -2,6 +2,10 @@
 
 **Ultra-lightweight permissions checking - literally check against an array of strings!**
 
+![Build Status](https://github.com/mikaelvesavuori/mikrovalid/workflows/main/badge.svg)
+
+[![codecov](https://codecov.io/gh/mikaelvesavuori/mikropermit/graph/badge.svg?token=35Q5GNYYYU)](https://codecov.io/gh/mikaelvesavuori/mikropermit)
+
 When you're building systems you'll perhaps end up with needing some kind of permissions checking. Why make it harder than it is? MikroPermit is your friend:
 
 - Make checking permissions as easy as checking against an array of strings - bring your own "system"

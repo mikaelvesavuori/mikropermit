@@ -33,12 +33,6 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
 
-      - name: Send coverage report with Code Climate
-        uses: paambaati/codeclimate-action@v9.0.0
-        env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-          coverageLocations: ${{ github.workspace }}/coverage/lcov.info:lcov
-
   publish:
     needs: ['build']
     runs-on: ubuntu-latest
