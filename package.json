@@ -1,0 +1,55 @@
+{
+  "name": "mikropermit",
+  "description": "Ultra-lightweight permissions checking",
+  "version": "0.0.1",
+  "author": "Mikael Vesavuori",
+  "license": "MIT",
+  "type": "module",
+  "main": "lib/index.cjs",
+  "module": "lib/index.js",
+  "exports": {
+    ".": {
+      "require": "./lib/index.cjs",
+      "import": "./lib/index.js"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikaelvesavuori/mikropermit.git"
+  },
+  "keywords": [
+    "permissions"
+  ],
+  "bugs": {
+    "url": "https://github.com/mikaelvesavuori/mikropermit/issues"
+  },
+  "homepage": "https://github.com/mikaelvesavuori/mikropermit#readme",
+  "files": [
+    "/lib",
+    "!/lib/**/*.map",
+    "!/tests"
+  ],
+  "scripts": {
+    "test": "npx vitest run --coverage",
+    "test:watch": "npx vitest",
+    "build": "npm run clean && tsup src --format esm,cjs --dts && mv dist lib",
+    "clean": "rm -rf lib && rm -rf dist",
+    "lint": "npx @biomejs/biome check --write ./src && npx @biomejs/biome check --write ./tests",
+    "package": "npm pack",
+    "prepublishOnly": "npm run build",
+    "prepare": "husky",
+    "docs": "npm run docs:clean && npm run docs:typedoc",
+    "docs:clean": "rm -rf docs",
+    "docs:typedoc": "npx typedoc --entryPoints src --entryPointStrategy expand --exclude '**/*+(test).ts' --externalPattern 'node_modules/**/*' --excludeExternals --out docs/"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1",
+    "@types/node": "22",
+    "@vitest/coverage-v8": "2",
+    "husky": "9",
+    "tsup": "8",
+    "typescript": "5",
+    "typedoc": "0",
+    "vitest": "2"
+  }
+}
